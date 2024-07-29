@@ -10,7 +10,7 @@ public class Ticket {
     private Date dateValid;
     private Train train;
 
-    public Ticket() {};
+    public Ticket() {}
 
     public Ticket(String ticketId, String userId, String source, String destination, Date dateValid, Train train) {
         this.ticketId = ticketId;
@@ -19,6 +19,10 @@ public class Ticket {
         this.destination = destination;
         this.dateValid = dateValid;
         this.train = train;
+    }
+
+    public String getTicketInfo(){
+        return String.format("Ticket ID: %s belongs to User %s from %s to %s on %s", ticketId, userId, source, destination, dateValid);
     }
 
     public String getTicketId() {

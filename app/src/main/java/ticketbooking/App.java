@@ -3,8 +3,32 @@
  */
 package ticketbooking;
 
+import java.util.Scanner;
+
+import ticketbooking.services.UserService;
+
 public class App {
     public static void main(String[] args) {
-        
+        System.out.println("Welcome to Train Ticket Booking App !!!");
+        Scanner sc = new Scanner(System.in);
+        int option = 0;
+        UserService userService;
+        try {
+            userService = new UserService(null);
+        } catch(Exception e) {
+            System.out.println("Something went Wrong");
+        }
+        while(option!=7) {
+            System.out.println("Choose Option: ");
+            System.out.println("1. Signup");
+            System.out.println("2. Login");
+            System.out.println("3. Fetch Bookings");
+            System.out.println("4. Search Trains");
+            System.out.println("5. Book a Seat");
+            System.out.println("6. Cancel Booking");
+            System.out.println("7. Exit Loop");
+
+            option = sc.nextInt();
+        }
     }
 }

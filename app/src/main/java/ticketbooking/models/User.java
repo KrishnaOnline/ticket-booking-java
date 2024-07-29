@@ -2,6 +2,12 @@ package ticketbooking.models;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+
+@JsonNaming(SnakeCaseStrategy.class)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
     private String userId;
     private String name;
@@ -9,7 +15,7 @@ public class User {
     private String hashedPassword;
     private List<Ticket> ticketsBooked;
 
-    public User() {};
+    public User() {}
 
     public User(String userId, String name, String password, String hashedPassword, List<Ticket> ticketsBooked) {
         this.userId = userId;
@@ -17,6 +23,12 @@ public class User {
         this.password = password;
         this.hashedPassword = hashedPassword;
         this.ticketsBooked = ticketsBooked;
+    }
+
+    public void printTickets() {
+        for(int i=0; i<ticketsBooked.size(); i++) {
+            System.out.println(ticketsBooked.get(i).getTicketInfo());
+        }
     }
 
     public String getUserId() {
@@ -46,7 +58,7 @@ public class User {
     public void setHashedPassword(String hashedPassword) {
         this.hashedPassword = hashedPassword;
     }
-    
+
     public List<Ticket> getTicketsBooked() {
         return ticketsBooked;
     }
