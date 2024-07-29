@@ -15,7 +15,7 @@ import ticketbooking.models.Train;
 public class TrainService {
     private List<Train> trainList;
     private ObjectMapper objectMapper = new ObjectMapper();
-    private static final String TRAINDB_PATH = "../db/trains.json";
+    private static final String TRAINDB_PATH = "app/src/main/java/ticketbooking/db/trains.json";
 
     public TrainService() throws Exception {
         File trains = new File(TRAINDB_PATH);

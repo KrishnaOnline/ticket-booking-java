@@ -65,6 +65,8 @@ public class UserService {
         }).findFirst();
         if(userFetched.isPresent()) {
             userFetched.get().printTickets();
+        } else {
+            System.out.println("No Bookings Found...");
         }
     }
 
