@@ -29,6 +29,14 @@ public class UserService {
         userList = objectMapper.readValue(users, new TypeReference<List<User>>() {});
     }
 
+    public UserService() throws Exception {
+        loadUserListFromFile();
+    }
+
+    private void loadUserListFromFile() throws Exception {
+        userList = objectMapper.readValue(new File(USERSDB_PATH), new TypeReference<List<User>>() {});
+    }
+
     private void saveUserToDB() throws Exception {
         File usersFile = new File(USERSDB_PATH);
         objectMapper.writeValue(usersFile, userList);
@@ -91,7 +99,7 @@ public class UserService {
         }
     }
 
-    public List<List<Integer>> fetchSeats(Train train, int row, int seat) {
+    public List<List<Integer>> fetchSeats(Train train) {
         return train.getSeats();
     }
 
